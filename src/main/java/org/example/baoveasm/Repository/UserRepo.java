@@ -16,6 +16,8 @@ public interface UserRepo extends JpaRepository<User, String> {
 
     List<User> findAll();
 
+    User findByid(String id);
+
     @Modifying
     @Transactional
     @Query(value = "update [User] set fullname = :fullname, password = :password, email = :email, role = :role  where id = :id", nativeQuery = true)
