@@ -31,7 +31,7 @@
                 <span>Password:</span>
             </div>
             <div class="col-10">
-                <input type="password" th:field="*{password}" class="form-control" placeholder="Enter password" name="password">
+                <input type="text" th:field="*{password}" class="form-control" placeholder="Enter password" name="password">
             </div>
         </div>
         <div class="row mb-3 align-items-center">
@@ -74,18 +74,21 @@
     <h1 class="">USER Lists</h1><br>
     <button class="btn">All</button>
     Filter by Role:
-    <div class="form-check d-inline-block me-3">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Admin">
-        <label class="form-check-label" for="exampleRadios1">
-            Admin
-        </label>
-    </div>
-    <div class="form-check d-inline-block">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="User">
-        <label class="form-check-label" for="exampleRadios2">
-            User
-        </label>
-    </div>
+    <form th:action="@{/filter}" method="get" class="d-inline">
+        <div class="form-check d-inline-block me-3">
+            <input class="form-check-input" type="radio" name="role" id="exampleRadios1" value="Admin">
+            <label class="form-check-label" for="exampleRadios1">
+                Admin
+            </label>
+        </div>
+        <div class="form-check d-inline-block">
+            <input class="form-check-input" type="radio" name="role" id="exampleRadios2" value="User">
+            <label class="form-check-label" for="exampleRadios2">
+                User
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
     <table class="table">
         <thead>
         <tr>

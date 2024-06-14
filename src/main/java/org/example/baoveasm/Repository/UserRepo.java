@@ -18,6 +18,8 @@ public interface UserRepo extends JpaRepository<User, String> {
 
     User findByid(String id);
 
+    List<User> findByRole(String role);
+
     @Modifying
     @Transactional
     @Query(value = "update [User] set fullname = :fullname, password = :password, email = :email, role = :role  where id = :id", nativeQuery = true)

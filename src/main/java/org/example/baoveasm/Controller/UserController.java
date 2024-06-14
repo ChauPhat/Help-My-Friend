@@ -44,4 +44,13 @@ public class UserController {
         model.addAttribute("users", userRepo.findAll()); // thêm danh sách người dùng vào model
         return "index"; // trả về template index
     }
+
+    // Phương thức mới để filter người dùng theo vai trò
+    @GetMapping("/filter")
+    public String filterByRole(@RequestParam String role, Model model) {
+        model.addAttribute("users", userRepo.findByRole(role)); // thêm danh sách người dùng theo vai trò vào model
+        model.addAttribute("user", new User()); // thêm một đối tượng người dùng mới vào model
+        return "index"; // trả về template index
+    }
 }
+
